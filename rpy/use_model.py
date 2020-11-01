@@ -16,5 +16,3 @@ def predict_mask(model):
     pred = model.predict_classes(scale_img)
     return pred
 
-white_model = load_model('white_mask.h5')
-print(predict_mask(white_model))

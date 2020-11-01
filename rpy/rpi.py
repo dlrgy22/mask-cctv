@@ -13,7 +13,7 @@ while True:
         cv2.imshow("VideoFrame", frame)
         find = find_face.img_processing('./sv_img/face.jpg', frame)
 
-
+        if cv2.waitKey(1) > 0:
             break
     pred = use_model.predict_mask(white_model)
     print(pred)
@@ -22,6 +22,8 @@ while True:
     elif pred == 0:
         print('please wear a mask')
 
+    else:
+        print('aa')
 
     print("find face please enter next person")
 
