@@ -31,7 +31,7 @@ class CNN_model:
         self.model.add(Dense(1, activation='sigmoid', kernel_initializer='he_normal'))
         adam = optimizers.Adam(lr=0.001)
         self.model.compile(optimizer=adam, loss='binary_crossentropy', metrics=['accuracy'])
-        self.hist = self.model.fit(self.x_train, self.y_train, validation_data=(self.x_val,self.y_val), epochs=1, verbose=1)
+        self.hist = self.model.fit(self.x_train, self.y_train, validation_data=(self.x_val,self.y_val), epochs=5, verbose=1)
 
     def plot_hist(self):
         plt.plot(self.hist.history['loss'])
@@ -42,3 +42,7 @@ class CNN_model:
     def predict(self):
         self.pred = self.model.predict(self.test_data)
         return self.pred
+
+    def save_model(self):
+        self.model.save('white_mask.h5')
+        print('save model')

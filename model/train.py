@@ -2,6 +2,7 @@ from model import CNN_model
 import numpy as np
 
 
+
 x_train = np.load('x_train.npy')
 y_train = np.load('y_train.npy')
 x_val = np.load('x_val.npy')
@@ -14,3 +15,4 @@ model.train()
 pred = model.predict()
 for i in range(6):
     print(pred[i], y_test[i])
+model.save_model()
